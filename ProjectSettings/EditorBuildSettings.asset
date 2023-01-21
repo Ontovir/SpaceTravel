@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Planet.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Flying.unity
+    guid: ec30b1c63f1e644479783e3903f1dcd3
+  - enabled: 1
+    path: Assets/Scenes/Earth.unity
+    guid: 09c202c3cc5cc9e4db76762dd2bcd4d9
   m_configObjects: {}
