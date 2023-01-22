@@ -17,7 +17,7 @@ public class PlayerCollisionScript : MonoBehaviour
     [SerializeField] float flyAwaySpeed = 0.01f;
 
     private CameraFollowScript camChange;
-    private bool ifPlayerDestroyed = false;
+    private bool ifCollisionHappened = false;
     //Метод OnCollisionEnter запускает показ текста с помощью булевой проверки.
     //Если объект имеет тэг "Enemy", то запускается метод CollisionText и корутина TextClear.
     private void OnCollisionEnter(Collision collision)
@@ -26,14 +26,24 @@ public class PlayerCollisionScript : MonoBehaviour
         {
             CollisionText();
             StartCoroutine(TextClear());
+            ifCollisionHappened = true;
+        }
 
-            if (Input.GetKey(KeyCode.E))
-            {
-                secondCam.GetComponent<Camera>().enabled = true;
-                GameObject.Destroy(player);
-                StartCoroutine(flyCoroutine());
-                StartCoroutine(nextSceneCoroutine());
-            }
+    }
+
+    private void Update()
+    {
+        IfEKeyPressed();
+    }
+
+    private void IfEKeyPressed()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && ifCollisionHappened)
+        {
+            secondCam.GetComponent<Camera>().enabled = true;
+            GameObject.Destroy(player);
+            StartCoroutine(flyCoroutine());
+            StartCoroutine(nextSceneCoroutine());
         }
     }
 
@@ -41,13 +51,14 @@ public class PlayerCollisionScript : MonoBehaviour
     private void CollisionText()
     {
         Debug.Log("Collision happened");
-        text.text = "Press <<E>> to fly on the Earth" ;
+        text.text = "Press <<E>> to fly on the Earth";
     }
     //Корутина TextClear нужна для того, чтобы очистить элемент TextMeshPro спустя 2 секунды после взаимодействия
     IEnumerator TextClear()
     {
         yield return new WaitForSeconds(2f);
         text.text = "";
+        ifCollisionHappened = false;
         StopCoroutine(TextClear());
     }
 
