@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1449108451, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.03
+      value: -3.878
       objectReference: {fileID: 0}
     - target: {fileID: 8101650092116588660, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
       propertyPath: m_IsActive
@@ -23,21 +23,29 @@ PrefabInstance:
       propertyPath: playerSpeed
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 8984608707809812168, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
-      propertyPath: m_Mass
-      value: 1
+    - target: {fileID: 8984608707809812169, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
+      propertyPath: m_Size.x
+      value: 0.37700725
       objectReference: {fileID: 0}
-    - target: {fileID: 8984608707809812168, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
-      propertyPath: m_UseGravity
-      value: 1
+    - target: {fileID: 8984608707809812169, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7687073
       objectReference: {fileID: 0}
-    - target: {fileID: 8984608707809812168, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
-      propertyPath: m_Constraints
-      value: 64
+    - target: {fileID: 8984608707809812169, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
+      propertyPath: m_Size.z
+      value: 0.33268738
       objectReference: {fileID: 0}
-    - target: {fileID: 8984608707809812168, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
+    - target: {fileID: 8984608707809812169, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
+      propertyPath: m_Center.x
+      value: 1.9840299
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984608707809812169, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
+      propertyPath: m_Center.y
+      value: 9.875128
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984608707809812169, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
+      propertyPath: m_Center.z
+      value: -1.4788609
       objectReference: {fileID: 0}
     - target: {fileID: 8984608708124713344, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
       propertyPath: m_RootOrder
@@ -103,5 +111,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8984608707809812163, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
