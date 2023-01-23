@@ -23,6 +23,18 @@ PrefabInstance:
       propertyPath: playerSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8984608707809812168, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
+      propertyPath: m_Mass
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984608707809812168, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984608707809812168, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 8984608707809812169, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
       propertyPath: m_Size.x
       value: 0.37700725
@@ -65,15 +77,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8984608708124713344, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.69
+      value: 2.15
       objectReference: {fileID: 0}
     - target: {fileID: 8984608708124713344, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.66
+      value: -8.86
       objectReference: {fileID: 0}
     - target: {fileID: 8984608708124713344, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.06
+      value: -11
       objectReference: {fileID: 0}
     - target: {fileID: 8984608708124713344, guid: a38a91a6e055cda409ee0ad7a454ad3d, type: 3}
       propertyPath: m_LocalRotation.w

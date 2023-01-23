@@ -38,9 +38,9 @@ public class Landing : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collision");
-        StopCoroutine(landingCoroutine());
         flyAwaySpeed = 0f;
         isRocketLanded = true;
+        StopCoroutine(landingCoroutine());
     }
     private void LandingMethod()
     {
