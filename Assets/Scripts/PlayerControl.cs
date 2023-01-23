@@ -6,15 +6,15 @@ public class PlayerControl : MonoBehaviour
 {
     // Управление с использованием Rigidbody. 
     // Можно настраивать скорость передвижения персонажа с использованием переменной playerSpeed;
-    private Rigidbody playerRigidbodyComponent;
-    public float playerSpeed = 1f;
+    private Rigidbody characterRigidbodyComponent;
+    public float playerSpeed = 0f;
 
     // Start is called before the first frame update
 
     // Присваиваю Rigidbody к переменной, которая используется при передвижении персонажа
     void Start()
     {
-        playerRigidbodyComponent = GetComponent<Rigidbody>();
+        characterRigidbodyComponent = GetComponent<Rigidbody>();
     }
 
 
@@ -34,8 +34,8 @@ public class PlayerControl : MonoBehaviour
     private void GetMove()
     {
         Vector3 playerMoveInput = new Vector3
-            (Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-        playerRigidbodyComponent.MovePosition(playerRigidbodyComponent.position + (playerMoveInput * playerSpeed * Time.deltaTime));
+            (Input.GetAxis("Horizontal")*playerSpeed, 0f, Input.GetAxis("Vertical")*playerSpeed);
+        characterRigidbodyComponent.MovePosition(characterRigidbodyComponent.position + playerMoveInput*Time.deltaTime);
     }
 
     //Этот код с корутиной отвечает за переход на другую сцену.
