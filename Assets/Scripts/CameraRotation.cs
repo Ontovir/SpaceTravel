@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class CameraRotation : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    //Update вызывает CameraRotationMethod для поворота камеры
     // Update is called once per frame
     void Update()
     {
         CameraRotationMethod();
     }
 
+    //Метод CameraRotationMethod отвечает за поворот ракеты в пространстве с помощью мышки
+    //Вектор getMousePosition забирает координаты курсора мыши из Input.mousePosition
+    //Он передаёт их в Quaternion rotation, а именно в метод Quaternion.Euler
+    //Quaternion rotation передаёт вращение на игровой объект, к которому прикреплён скрипт (камера),
+    //обеспечивает поворот камеры с помощью мышки.
     private void CameraRotationMethod()
     {
         Vector3 getMousePosition = Input.mousePosition;

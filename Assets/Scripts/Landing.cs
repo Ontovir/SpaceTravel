@@ -4,25 +4,32 @@ using UnityEngine;
 
 public class Landing : MonoBehaviour
 {
+    //Объекты, используемые в скрипте
     [SerializeField] GameObject player;
     [SerializeField] Camera landingCamera;
+
+    //Переменные, используемые в скрипте
     float flyAwaySpeed = 60f;
     Rigidbody rocketRB;
     private bool isRocketLanded = false;
+
+
     // Start is called before the first frame update
+    //В методе Start происходит поиск компонента ракеты Rigidbody.
+    //Запускается корутина landingCoroutine, отвечающая за посадку ракеты на землю. 
+    //Можно было бы осуществить посадку, просто назначив ракете гравитацию. Она бы упала и всё. Но мне
+    //такой способ не понравился.
     void Start()
     {
         rocketRB = GetComponent<Rigidbody>();
-        StartCoroutine(landingCoroutine());
+        StartCoroutine(LandingCoroutine());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    
-    IEnumerator landingCoroutine()
+    //Корутина LandingCoroutine работает, пока булева переменная isRocketLanded == false.
+    //Эта корутина каждые 0.033 секунды вызывает метод LandingMethod, отвечающий за посадку ракеты.
+    //Когда переменная isRocketLanded становится true, тогда отключается камера, показывающая посадку
+    //и происходит Instantiate игрового объекта player. 
+    IEnumerator LandingCoroutine()
     {
         while (!isRocketLanded)
         {
@@ -35,13 +42,19 @@ public class Landing : MonoBehaviour
             }
         }
     }
+
+    //Метод OnCollisionEnter срабатывает при соприкосновении с землёй.
+    //Он назначает переменной flyAwaySpeed 0f, и меняет isRocketLanded на true, останавливает корутину LandingCoroutine
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision");
         flyAwaySpeed = 0f;
         isRocketLanded = true;
-        StopCoroutine(landingCoroutine());
+        StopCoroutine(LandingCoroutine());
     }
+
+    //LandingMethod отвечает за посадку ракеты на землю.
+    //Движение происходит по оси Y. В метод MovePosition компонента ракеты Rigidbody передаются координаты вектора
+    //flyVector, который с назначенной скоростью опускает ракету на землю. 
     private void LandingMethod()
     {
         float x = flyAwaySpeed * Time.deltaTime;

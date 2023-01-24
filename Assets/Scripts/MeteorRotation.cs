@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class MeteorRotation : MonoBehaviour
 {
+    //Список метеоритов, на которые будет действовать скрипт
     [SerializeField] List<GameObject> meteors;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
+    //В Update вызывается MeteorRotationMember
+    //Метод обеспечивает вращение метеоров в случайном направлении
     // Update is called once per frame
     void Update()
     {
         MeteorRotationMethod();
     }
+
+    //В методе MeteorRotationMethod используется функция foreach,
+    //которая назначает случайный вектор направления вращения
+    //каждому элементу из списка meteors.
+    //С помощью метода Rotate задаётся вращение каждому item из списка
     private void MeteorRotationMethod()
     {
         foreach (var item in meteors)
@@ -25,11 +28,5 @@ public class MeteorRotation : MonoBehaviour
             float randZ = Random.Range(0.01f, 0.2f);
             item.transform.Rotate(new Vector3(randX, randY, randZ));
         }
-    }
-    private void Movement()
-    {
-        float moveSpeed = 600f * Time.deltaTime;
-        Vector3 moveVector = new Vector3(100f, 100f, 100f);
-        GetComponent<Rigidbody2D>().transform.position = Vector3.MoveTowards(transform.position, moveVector, moveSpeed);
     }
 }

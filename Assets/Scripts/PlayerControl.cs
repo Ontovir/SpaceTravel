@@ -10,22 +10,18 @@ public class PlayerControl : MonoBehaviour
     public float playerSpeed = 0f;
 
     // Start is called before the first frame update
-
     // Присваиваю Rigidbody к переменной, которая используется при передвижении персонажа
     void Start()
     {
         characterRigidbodyComponent = GetComponent<Rigidbody>();
     }
 
-
     // В update вызываю метод, отвечающий за движение персонажа
-
     // Update is called once per frame
     void Update()
     {
         GetMove();
     }
-
 
     // Метод GetMove() отвечает за контроль персонажа
     // за счёт изменения параметра position у компонента Rigidbody2D.
@@ -37,20 +33,4 @@ public class PlayerControl : MonoBehaviour
             (Input.GetAxis("Horizontal")*playerSpeed, 0f, Input.GetAxis("Vertical")*playerSpeed);
         characterRigidbodyComponent.MovePosition(characterRigidbodyComponent.position + playerMoveInput*Time.deltaTime);
     }
-
-    //Этот код с корутиной отвечает за переход на другую сцену.
-    //Здесь я его закомментировал, т.к. он не используется в текущей игровой сцене
-    /* private void OnTriggerEnter2D(Collider2D collision)
-    {
-        GetComponent<PlayerController>().enabled = false;
-        StartCoroutine(LoadNextScene());
-    }
-    IEnumerator LoadNextScene()
-    {
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(1);
-        GetComponent<PlayerController>().enabled = true;
-        StopCoroutine(LoadNextScene());
-    }
-    */
 }
