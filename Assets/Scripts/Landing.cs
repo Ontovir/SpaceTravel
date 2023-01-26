@@ -28,7 +28,8 @@ public class Landing : MonoBehaviour
     //Корутина LandingCoroutine работает, пока булева переменная isRocketLanded == false.
     //Эта корутина каждые 0.033 секунды вызывает метод LandingMethod, отвечающий за посадку ракеты.
     //Когда переменная isRocketLanded становится true, тогда отключается камера, показывающая посадку
-    //и происходит Instantiate игрового объекта player. 
+    //и происходит Instantiate игрового объекта player. Включается опция компонента
+    //Rigidbody useGravity.
     IEnumerator LandingCoroutine()
     {
         while (!isRocketLanded)
@@ -37,7 +38,9 @@ public class Landing : MonoBehaviour
             LandingMethod();
             if (isRocketLanded)
             {
+                yield return new WaitForSeconds(1f);
                 landingCamera.enabled = false;
+                rocketRB.useGravity = true;
                 Instantiate(player);
             }
         }

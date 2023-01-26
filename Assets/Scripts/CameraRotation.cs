@@ -19,7 +19,7 @@ public class CameraRotation : MonoBehaviour
     private void CameraRotationMethod()
     {
         Vector3 getMousePosition = Input.mousePosition;
-        Quaternion rotation = Quaternion.Euler(-getMousePosition.y * 0.05f, getMousePosition.x * 0.05f, 0f);
+        Quaternion rotation = Quaternion.Euler(-getMousePosition.y * 0.07f, getMousePosition.x * 0.07f, 0f);
         transform.rotation = rotation;
     }
 }
