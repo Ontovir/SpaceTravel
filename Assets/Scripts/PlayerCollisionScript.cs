@@ -29,9 +29,9 @@ public class PlayerCollisionScript : MonoBehaviour
     {
         if (collision.collider.tag == "Rocket")
         {
+            ifCollisionHappened = true;
             CollisionText();
             StartCoroutine(TextClear());
-            ifCollisionHappened = true;
         }
     }
 
@@ -54,8 +54,8 @@ public class PlayerCollisionScript : MonoBehaviour
         {
             secondCam.GetComponent<Camera>().enabled = true;
             GameObject.Destroy(player);
-            StartCoroutine(FlyCoroutine());
             StartCoroutine(NextSceneCoroutine());
+            StartCoroutine(FlyCoroutine());
         }
     }
 
